@@ -35,6 +35,10 @@ private handleError(error: HttpErrorResponse): any {
   }
 }
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class UserLoginService{
 
   constructor(private http: HttpClient){
