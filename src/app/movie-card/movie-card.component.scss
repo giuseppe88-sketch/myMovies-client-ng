@@ -1,0 +1,14 @@
+.movie-card{
+    margin-top:80px;
+    margin-left: 20px;
+}
+.card{
+    margin-left: 15px;
+    box-shadow: 4px 3px 19px 0px rgba(82, 78, 78, 0.3);
+    background-color: rgba(235, 235, 235, 0.76);
+}
+@media (max-width: 800px) {
+    .card {
+      margin-top: 30%;
+    }
+  }

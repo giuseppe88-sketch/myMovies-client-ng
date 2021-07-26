@@ -46,7 +46,7 @@ export class UserLoginService{
   }
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
-    return this.http.post(apiUrl + 'users', userDetails).pipe(
+    return this.http.post(apiUrl + 'login', userDetails).pipe(
     catchError(this.handleError)
     );
   }
@@ -64,11 +64,14 @@ export class UserLoginService{
 
 };
 
+@Injectable({
+  providedIn: 'root'
+})
 export class GetAllMoviesService{
   constructor(private http: HttpClient){
 
   }
-  getAllMovies(): Observable<any> {
+  public getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
       {
