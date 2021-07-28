@@ -262,13 +262,18 @@ export class GetOneGenresService{
   }
 
 }
+
+@Injectable({
+  providedIn: 'root',
+})
 export class GetUserService{
   constructor(private http: HttpClient){
 
   }
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.get(apiUrl + 'users', {headers: new HttpHeaders(
+    const user = localStorage.getItem('user')
+    return this.http.get(apiUrl + `users/${user}`, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
@@ -392,14 +397,17 @@ export class DeleteToFavoritesService{
   }
 
 }
-
+@Injectable({
+  providedIn: 'root',
+})
 export class DeleteUserService{
   constructor(private http: HttpClient){
 
   }
   getDeleteUserService(): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/:name', {headers: new HttpHeaders(
+    const user = localStorage.getItem('user');
+    return this.http.delete(apiUrl + `users/${user}`, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(

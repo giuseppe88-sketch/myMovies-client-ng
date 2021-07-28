@@ -1,7 +1,5 @@
-// src/app/user-registration-form/user-registration-form.component.ts
-import { Component, OnInit, Input } from '@angular/core';
-
-// You'll use this import to close the dialog on success
+import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 
 // This import brings in the API calls we created in 6.2
@@ -11,25 +9,24 @@ import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
-@Component({ 
-  templateUrl: './user-registration-form.component.html',
-  selector: 'app-user-registration-form',
-  styleUrls: ['./user-registration-form.component.scss'],
+@Component({
+  selector: 'app-profile-update',
+  templateUrl: './profile-update.component.html',
+  styleUrls: ['./profile-update.component.scss']
 })
-export class UserRegistrationFormComponent implements OnInit {
-
+export class ProfileUpdateComponent implements OnInit {
   @Input() userData = { username: '', password: '', email: '', birthday: '' };
-
-constructor(
+  constructor(
     public fetchApiData: UserRegistrationService,
-    public dialogRef: MatDialogRef<UserRegistrationFormComponent>,
-    public snackBar: MatSnackBar) { }
+    public dialogRef: MatDialogRef<ProfileUpdateComponent>,
+    public snackBar: MatSnackBar,
+    public router: Router,
 
-ngOnInit(): void {
-}
+  ) { }
 
-// This is the function responsible for sending the form inputs to the backend
-registerUser(): void {
+  ngOnInit(): void {
+  }
+ updateUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
   // Logic for a successful user registration goes here! (To be implemented)
      this.dialogRef.close(); // This will close the modal on success!
@@ -43,6 +40,6 @@ registerUser(): void {
         duration: 2000
       });
     });
+    this.router.navigate(['welcome']);
   }
-
-  }
+}

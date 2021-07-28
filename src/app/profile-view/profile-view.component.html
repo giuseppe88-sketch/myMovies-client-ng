@@ -1,0 +1,27 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="profile-view"> 
+
+    <mat-dialog-content class="user-profile">
+        
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Your profile</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>Username: {{user.username}}</mat-card-content>
+            <mat-card-content>Email: {{user.email}}</mat-card-content>
+            <button
+            mat-raised-button
+            color="primary"
+            (click)="openUpdateDialog()"
+            >
+            Update your profile
+        </button>
+        <button
+            mat-raised-button
+            color="secondary"
+            (click)="deleteUser()"
+            >Delete your profile
+        </button>
+    </mat-card>
+</mat-dialog-content>
+</div>

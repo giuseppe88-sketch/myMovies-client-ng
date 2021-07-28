@@ -1,5 +1,4 @@
-
-
+<app-navigation-bar></app-navigation-bar>
     <div class="movie-card" style="display:flex">
         <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;" class="card">
             <mat-card-header>
@@ -10,6 +9,7 @@
             <mat-card-actions>
                 <button
                 mat-button
+                (click)="showGenres(movie.genre,movie.genre.description)"
                 color="primary"
                 >
                 Genre
@@ -22,6 +22,7 @@
         </button>
         <button
         mat-button
+        (click)="showDescription(movie.title, movie.description)"
         color="primary"
         >
         Synopsis

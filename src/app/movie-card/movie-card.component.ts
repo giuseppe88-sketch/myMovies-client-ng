@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GetAllMoviesService } from '../fetch-api-data.service'
-
+import { GetAllMoviesService } from '../fetch-api-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SynopsisViewComponent } from '../synopsis-view/synopsis-view.component';
+import { GenreViewComponent } from '../genre-view/genre-view.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -9,7 +11,10 @@ import { GetAllMoviesService } from '../fetch-api-data.service'
 })
 export class MovieCardComponent {
   movies: any[] = [];
-  constructor(public fetchApiData: GetAllMoviesService) { }
+  constructor(
+    public fetchApiData: GetAllMoviesService,
+    public dialog: MatDialog,
+    ) { }
 
 ngOnInit(): void {
   this.getMovies();
@@ -22,4 +27,18 @@ getMovies(): void {
       return this.movies;
     });
   }
+  showDescription(title:string, description: string): void{
+    this.dialog.open(SynopsisViewComponent,{
+      data:{title, description},
+      width:"450px"
+    })
+  }
+  showGenres(name:string,description:string): void{
+    this.dialog.open(GenreViewComponent,{
+      data:{name, description},
+      width:"450px"
+    })
+  }
+
+
 }
