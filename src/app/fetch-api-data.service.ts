@@ -299,7 +299,9 @@ export class GetUserService{
   }
 
 }
-
+@Injectable({
+  providedIn: 'root',
+})
 export class GetFavoritesMovieService{
   constructor(private http: HttpClient){
 
@@ -339,10 +341,10 @@ export class AddToFavoritesService{
   constructor(private http: HttpClient){
 
   }
-  getAddToFavorites(): Observable<any> {
+  getAddToFavorites(movieID: string): Observable<any> {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
-    return this.http.post(apiUrl + 'users/:username/favorites/:movie', {headers: new HttpHeaders(
+    return this.http.post(apiUrl + `users/${user}/favorites/${movieID}`,movieID, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
