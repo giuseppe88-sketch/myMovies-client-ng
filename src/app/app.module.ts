@@ -27,7 +27,12 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import{MatToolbarModule} from '@angular/material/toolbar';
 import { FavoritesViewComponent } from './favorites-view/favorites-view.component';
 import {MatMenuModule} from '@angular/material/menu';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { AllDirectorCardComponent } from './all-director-card/all-director-card.component';
+import { AllGenreViewComponent } from './all-genre-view/all-genre-view.component';
+import { AllActorCardComponent } from './all-actor-card/all-actor-card.component';
 
 
 const appRoutes: Routes = [
@@ -35,6 +40,9 @@ const appRoutes: Routes = [
   { path: 'movies', component: MovieCardComponent },
   { path: 'profile', component: ProfileViewComponent },
   { path: 'favorites', component: FavoritesViewComponent },
+  { path: 'directors', component: AllDirectorCardComponent },
+  { path: 'genres', component: AllGenreViewComponent },
+  {path: 'actors',component: AllActorCardComponent},
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -51,6 +59,10 @@ const appRoutes: Routes = [
     GenreViewComponent,
     NavigationBarComponent,
     FavoritesViewComponent,
+    DirectorViewComponent,
+    AllDirectorCardComponent,
+    AllGenreViewComponent,
+    AllActorCardComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -67,7 +79,9 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    FlexLayoutModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

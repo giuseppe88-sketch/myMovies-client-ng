@@ -3,6 +3,7 @@ import { GetAllMoviesService, GetFavoritesMovieService,AddToFavoritesService } f
 import { MatDialog } from '@angular/material/dialog';
 import { SynopsisViewComponent } from '../synopsis-view/synopsis-view.component';
 import { GenreViewComponent } from '../genre-view/genre-view.component';
+import { DirectorViewComponent } from '../director-view/director-view.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-movie-card',
@@ -38,6 +39,12 @@ getMovies(): void {
   showGenres(name:string,description:string): void{
     this.dialog.open(GenreViewComponent,{
       data:{name, description},
+      width:"450px"
+    })
+  }
+  showDirector(name:string):void {
+    this.dialog.open(DirectorViewComponent,{
+      data:{name},
       width:"450px"
     })
   }

@@ -1,19 +1,20 @@
-.movie-card{
+.actor-card{
     margin-top:80px;
     margin-left: 20px;
+    
+    
 }
 .card{
-    margin-left: 15px;
+    margin-top: 15px;
     box-shadow: 4px 3px 19px 0px rgba(82, 78, 78, 0.3);
     background-color: rgba(235, 235, 235, 0.76);
+    padding: 40px;
 }
 mat-card-title{
   font-weight: 500;
   
 }
-mat-card-subtitle{
-  font-weight: 600;
-}
+
 @media (max-width: 800px) {
     .card {
       margin-top: 30%;

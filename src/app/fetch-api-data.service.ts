@@ -131,6 +131,9 @@ export class GetOneMovieService{
   }
 
 }
+@Injectable({
+  providedIn: 'root'
+})
 export class GetDirectorService{
   constructor(private http: HttpClient){
 
@@ -138,6 +141,41 @@ export class GetDirectorService{
   getDirector(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'directors', {headers: new HttpHeaders(
+      {
+        Authorization: 'Bearer ' + token,
+      })}).pipe(
+      map(this.extractResponseData),
+      catchError(this.handleError)
+    );
+  }
+  private extractResponseData(res: Response | {}): Response | {} {
+    console.log(res);
+    const body = res;
+    return body || {};
+  }
+  private handleError(error: HttpErrorResponse): any {
+    if (error.error instanceof ErrorEvent) {
+    console.error('Some error occurred:', error.error.message);
+    } else {
+    console.error(
+        `Error Status code ${error.status}, ` +
+        `Error body is: ${error.error}`);
+    }
+    return throwError(
+    'Something bad happened; please try again later.');
+  }
+
+}
+@Injectable({
+  providedIn: 'root'
+})
+export class GetActorService{
+  constructor(private http: HttpClient){
+
+  }
+  getActors(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(apiUrl + 'actors', {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
@@ -196,7 +234,9 @@ export class GetOneDirectorService{
   }
 
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 export class GetGenresService{
   constructor(private http: HttpClient){
 

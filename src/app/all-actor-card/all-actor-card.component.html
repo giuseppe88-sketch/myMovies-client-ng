@@ -1,0 +1,11 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="actor-card">
+    <mat-card *ngFor="let actor of actors;" class="card">
+   <mat-card-header>
+            <mat-card-title>{{actor.name}}</mat-card-title>
+        </mat-card-header>    
+        <mat-card-content>
+            {{actor.bio}}
+          </mat-card-content>
+</mat-card>
+</div>
