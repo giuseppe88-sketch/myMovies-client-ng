@@ -332,13 +332,16 @@ export class GetFavoritesMovieService{
   }
 
 }
-
+@Injectable({
+  providedIn: 'root',
+})
 export class AddToFavoritesService{
   constructor(private http: HttpClient){
 
   }
   getAddToFavorites(): Observable<any> {
     const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
     return this.http.post(apiUrl + 'users/:username/favorites/:movie', {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,

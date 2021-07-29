@@ -25,6 +25,8 @@ import { ProfileUpdateComponent } from './profile-update/profile-update.componen
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import{MatToolbarModule} from '@angular/material/toolbar';
+import { FavoritesViewComponent } from './favorites-view/favorites-view.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'profile', component: ProfileViewComponent },
+  { path: 'favorites', component: FavoritesViewComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -47,6 +50,7 @@ const appRoutes: Routes = [
     ProfileUpdateComponent,
     GenreViewComponent,
     NavigationBarComponent,
+    FavoritesViewComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -63,6 +67,7 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
