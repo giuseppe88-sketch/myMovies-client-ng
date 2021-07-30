@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewEncapsulation} from '@angular/core';
 import { GetAllMoviesService, GetFavoritesMovieService,AddToFavoritesService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SynopsisViewComponent } from '../synopsis-view/synopsis-view.component';
@@ -8,7 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.scss']
+  styleUrls: ['./movie-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MovieCardComponent {
   movies: any[] = [];
@@ -17,10 +18,14 @@ export class MovieCardComponent {
     public fetchApiDataAdd:AddToFavoritesService,
     public snackBar: MatSnackBar,
     public dialog: MatDialog,
+    private elementRef:ElementRef,
     ) { }
 
 ngOnInit(): void {
   this.getMovies();
+}
+ngAfterViewInit(){
+  this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'yourColor';
 }
 
 getMovies(): void {

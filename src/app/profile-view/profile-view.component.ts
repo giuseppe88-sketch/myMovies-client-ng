@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Inject } from '@angular/core';
+import { Component, OnInit,Input,Inject,ElementRef,ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeleteUserService, GetUserService } from '../fetch-api-data.service';
 import { UserRegistrationService } from '../fetch-api-data.service';
@@ -10,7 +10,8 @@ import { ProfileUpdateComponent } from '../profile-update/profile-update.compone
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
-  styleUrls: ['./profile-view.component.scss']
+  styleUrls: ['./profile-view.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ProfileViewComponent implements OnInit {
      user: any =[];
@@ -23,13 +24,17 @@ export class ProfileViewComponent implements OnInit {
     public fetchApiDataDelete: DeleteUserService,
     public router: Router,
    public snackBar: MatSnackBar,
-   public dialog: MatDialog
+   public dialog: MatDialog,
+   private elementRef:ElementRef,
 
   ) { }
  
   ngOnInit(): void {
    this.getUser();
    
+  }
+  ngAfterViewInit(){
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'yourColor';
   }
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetAllMoviesService,DeleteToFavoritesService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,7 +8,8 @@ import { GetUserService } from '../fetch-api-data.service';
 @Component({
   selector: 'app-favorites-view',
   templateUrl: './favorites-view.component.html',
-  styleUrls: ['./favorites-view.component.scss']
+  styleUrls: ['./favorites-view.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FavoritesViewComponent implements OnInit {
   favorites: any = [];
@@ -20,12 +21,16 @@ export class FavoritesViewComponent implements OnInit {
     public fetchApiDataMov: GetAllMoviesService,
     public fetchApiDataFavDel: DeleteToFavoritesService,
     public snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private elementRef:ElementRef,
   ) { }
 
   ngOnInit(): void {
     this.getUser();
   }
+  ngAfterViewInit(){
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = 'yourColor';
+ }
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
         this.user = resp;

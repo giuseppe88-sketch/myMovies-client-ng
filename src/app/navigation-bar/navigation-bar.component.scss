@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 .spacer{
     flex: 1 1 auto;
 }
@@ -6,7 +7,8 @@ mat-toolbar{
     height: 90px;
     background: rgb(255,255,255);
     background: -o-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%);
-    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%); 
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%);
+    font-family: 'Opens Sans',serif;
 }
 
 span{

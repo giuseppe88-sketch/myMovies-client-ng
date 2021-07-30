@@ -10,7 +10,24 @@ mat-card{
     background: -o-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%);
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%); 
 }
-.danger-zone{
-    background-color: rgb(236, 12, 12);
-    margin-left: 6px;
+body {
+    background-color: rgba(110, 117, 110, 0.473);
+    background-image:url('https://images.unsplash.com/photo-1509403690534-26d3b04c8a4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+    
+    
 }
+.danger-zone{
+    margin-left: 10px;
+   background-color: rgba(241, 19, 19, 0.911);
+   
+}
+
+  @media only screen and (max-width:767px){
+    body{
+        background-image: url('https://images.unsplash.com/photo-1509403690534-26d3b04c8a4e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');
+    }
+  }
