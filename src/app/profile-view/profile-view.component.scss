@@ -5,3 +5,12 @@
     margin-top: 200px;
     
 }
+mat-card{
+    background: rgb(255,255,255);
+    background: -o-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%); 
+}
+.danger-zone{
+    background-color: rgb(236, 12, 12);
+    margin-left: 6px;
+}

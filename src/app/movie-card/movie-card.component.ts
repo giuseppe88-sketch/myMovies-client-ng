@@ -30,9 +30,9 @@ getMovies(): void {
       return this.movies;
     });
   }
-  showDescription(title:string, description: string): void{
+  showDescription(title:string, description: string,Rating:string): void{
     this.dialog.open(SynopsisViewComponent,{
-      data:{title, description},
+      data:{title, description,Rating},
       width:"450px"
     })
   }

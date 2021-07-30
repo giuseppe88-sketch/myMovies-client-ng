@@ -9,6 +9,10 @@
     box-shadow: 4px 3px 19px 0px rgba(82, 78, 78, 0.3);
     background-color: rgba(235, 235, 235, 0.76);
     padding: 40px;
+    margin-right: 20px;
+    background: rgb(255,255,255);
+    background: -o-radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(199,199,199,0.7483368347338936) 83%, rgba(255,255,255,0.5718662464985995) 100%);  
 }
 mat-card-title{
   font-weight: 500;

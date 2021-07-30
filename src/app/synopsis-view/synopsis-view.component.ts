@@ -12,7 +12,8 @@ export class SynopsisViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
   public data: {
     title: string;
-    description: string;}
+    description: string;
+  Rating:any}
     ) { }
 
   ngOnInit(): void {

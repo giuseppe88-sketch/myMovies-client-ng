@@ -410,13 +410,17 @@ export class AddToFavoritesService{
   }
 
 }
+@Injectable({
+  providedIn: 'root',
+})
 export class DeleteToFavoritesService{
   constructor(private http: HttpClient){
 
   }
-  getDeleteToFavorites(): Observable<any> {
+  getDeleteToFavorites(movieID:string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.delete(apiUrl + 'users/:username/favorites/:movie', {headers: new HttpHeaders(
+    const user = localStorage.getItem('user');
+    return this.http.delete(apiUrl + `users/${user}/favorites/${movieID}`, {headers: new HttpHeaders(
       {
         Authorization: 'Bearer ' + token,
       })}).pipe(
