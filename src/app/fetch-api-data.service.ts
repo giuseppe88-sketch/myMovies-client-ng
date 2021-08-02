@@ -6,6 +6,13 @@ import { map } from 'rxjs/operators';
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://mymovies-db-api.herokuapp.com/';
+
+
+/**
+   * allow user to register
+   * @returns Adds a new user to the database
+   * @param userDetails An object containing the user's info
+   */
 @Injectable({
   providedIn: 'root'
 })
@@ -34,7 +41,14 @@ private handleError(error: HttpErrorResponse): any {
     'Something bad happened; please try again later.');
   }
 }
-
+/**
+   * login user
+   * @returns Returns user authentication
+   * * @param username Username of type string.
+  * @param password Passwrd of type string.
+   * @param userDetails An object contain password and user email
+   * 
+   */
 
 @Injectable({
   providedIn: 'root'
@@ -63,10 +77,13 @@ export class UserLoginService{
   }
 
 };
-
+/**
+   * @returns Returns a list of all the movies from database
+   */
 @Injectable({
   providedIn: 'root'
 })
+
 export class GetAllMoviesService{
   constructor(private http: HttpClient){
 
@@ -99,6 +116,10 @@ export class GetAllMoviesService{
   }
 
 }
+
+ /**
+   * @returns Returns a movie's data selected by title
+   */
 export class GetOneMovieService{
   constructor(private http: HttpClient){
 
@@ -131,6 +152,10 @@ export class GetOneMovieService{
   }
 
 }
+
+/**
+   * @returns Returns the director data
+   */
 @Injectable({
   providedIn: 'root'
 })
@@ -166,6 +191,10 @@ export class GetDirectorService{
   }
 
 }
+
+/**
+   * @returns Returns list of actor
+   */
 @Injectable({
   providedIn: 'root'
 })
@@ -234,6 +263,10 @@ export class GetOneDirectorService{
   }
 
 }
+
+/**
+   * @returns Returns list of all genres
+   */
 @Injectable({
   providedIn: 'root'
 })
@@ -302,7 +335,9 @@ export class GetOneGenresService{
   }
 
 }
-
+/**
+   * @returns Returns user from database
+   */
 @Injectable({
   providedIn: 'root',
 })
@@ -339,6 +374,10 @@ export class GetUserService{
   }
 
 }
+
+/**
+   * @returns Returns favortites list movies from database
+   */
 @Injectable({
   providedIn: 'root',
 })
@@ -374,6 +413,12 @@ export class GetFavoritesMovieService{
   }
 
 }
+
+ /**
+   * Adds a movie to the favorites movies list
+   * @returns Returns an array of the movies 
+   * @param id The id of the selected movie
+   */
 @Injectable({
   providedIn: 'root',
 })
@@ -410,6 +455,12 @@ export class AddToFavoritesService{
   }
 
 }
+
+/**
+   * delete a movie to the favorites movies list
+   * @returns Returns an array of the favorites 
+   * @param id The id of the selected movie
+   */
 @Injectable({
   providedIn: 'root',
 })
@@ -446,6 +497,10 @@ export class DeleteToFavoritesService{
   }
 
 }
+
+/**
+   * Allows a user to delete their account
+   */
 @Injectable({
   providedIn: 'root',
 })
